@@ -1,0 +1,220 @@
+/* === ОСНОВНІ СТИЛІ === */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Playwrite DE Grund Guides", cursive;
+  /* живий фон — анімований градієнт */
+  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c0fe);
+  background-size: 800% 800%;
+  animation: gradientMove 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* анімація градієнта */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === КНОПКА СТАРТ === */
+.btn-start {
+  position: relative;
+  display: inline-block;
+  padding: 50px 100px;
+  font-size: 2.5em;
+  text-align: center;
+  color: #ffffff;
+  background-color: #083255;
+  border: 8px solid #4fc3f7;
+  border-radius: 25px;
+  box-shadow:
+    0 4px 0 #062b47,
+    0 6px 10px rgba(0, 0, 0, 0.3),
+    inset 0 -4px 10px rgba(255, 255, 255, 0.2);
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 0 #0ff,
+    6px 6px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-start:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow:
+    0 8px 0 #062b47,
+    0 12px 20px rgba(0, 0, 0, 0.4),
+    inset 0 -6px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* === СТОРІНКА ТЕСТУ === */
+.card-qw {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ТЕКСТ ПИТАННЯ */
+.qw  {
+  font-size: 2.8em;
+  color: #083255;
+  margin-bottom: 50px; /* відступ від відповідей */
+  text-shadow:
+    3px 3px 0 #0ff,
+    6px 6px 0 #083255,
+    8px 8px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+/* ВІДПОВІДІ */
+.answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  width: 80%;
+}
+
+.ans {
+  background-color: #ffffff;
+  color: #083255;
+  padding: 20px;
+  font-size: 1.2em;
+  border-radius: 12px;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Емоджі для варіантів */
+.ans:nth-child(1)::before { content: "🧠 "; }
+.ans:nth-child(2)::before { content: "💬 "; }
+.ans:nth-child(3)::before { content: "🎨 "; }
+.ans:nth-child(4)::before { content: "🚀 "; }
+
+/* Ховер ефект для відповідей */
+.ans:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: #f1faff;
+}
+
+/* === РЕЗУЛЬТАТ === */
+/* === БЛОК РЕЗУЛЬТАТУ === */
+.result {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  padding: 50px;
+  margin: 100px auto;
+  width: 80%;
+  max-width: 900px;
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.25),
+    inset 0 0 20px rgba(79, 195, 247, 0.2);
+  text-align: center;
+  color: #083255;
+  animation: fadeIn 1s ease forwards;
+  backdrop-filter: blur(5px);
+}
+
+/* Анімація появи */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Заголовок результату */
+.result .title {
+  font-size: 2.5em;
+  color: #083255;
+  margin-bottom: 20px;
+  text-shadow:
+    2px 2px 0 #4fc3f7,
+    4px 4px 5px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Опис типу */
+.result .description {
+  font-size: 1.3em;
+  color: #1a1a1a;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 0 #cfe8ff;
+}
+
+/* Контейнер для списків */
+.result .about {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Списки сфер і професій */
+.result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px 35px;
+  text-align: left;
+  width: 40%;
+  min-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ховер-ефект для списків */
+.result ul:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Заголовки списків (додаємо через псевдоелементи) */
+.suitable_fields::before {
+  content: "🌟 Підходящі сфери діяльності";
+  display: block;
+  font-weight: bold;
+  color: #007acc;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.professions::before {
+  content: "💼 Приклади професій";
+  display: block;
+  font-weight: bold;
+  color: #00bfa5;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Пункти списку */
+.result li {
+  font-size: 1.1em;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.result li:last-child {
+  border-bottom: none;
+}
